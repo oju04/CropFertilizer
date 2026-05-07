@@ -3,3 +3,4 @@ Django
 sqlparse
 tzdata
 gunicorn
+whitenoise

@@ -1,0 +1,199 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}">
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-1.1.1.js' %}"></script>
+  <script src="{% static 'js/superfish.js' %}"></script>
+  <script src="{% static 'js/sForm.js' %}"></script>
+  <script src="{% static 'js/jquery.equalheights.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/tms-0.4.1.js' %}"></script>
+  <script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js' %}"></script>
+  <script	src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
+  <script>
+  $(window).load(function () {
+      $('.slider')._TMS({
+          show: 0,
+          pauseOnHover: false,
+          prevBu: '.prev',
+          nextBu: '.next',
+          playBu: false,
+          duration: 800,
+          preset: 'fade',
+          pagination: false, //'.pagination',true,'<ul></ul>'
+          pagNums: false,
+          slideshow: 8000,
+          numStatus: false,
+          banners: true,
+          waitBannerAnimation: false,
+          progressBar: false
+      })
+  });
+  $(window).load(
+      function () {
+          $('.carousel1').carouFredSel({
+              auto: false,
+              prev: '.prev1',
+              next: '.next1',
+              width: 1030,
+              items: {
+                  visible: {
+                      min: 1,
+                      max: 4
+                  },
+                  height: 'auto',
+                  width: 157,
+              },
+              responsive: true,
+              scroll: 1,
+              mousewheel: false,
+              swipe: {
+                  onMouse: true,
+                  onTouch: true
+              }
+          });
+      });
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'inputform/fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'inputform/css/owl.carousel.min.css' %}">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'inputform/css/bootstrap.min.css' %}">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="{% static 'inputform/css/style.css' %}">
+
+  <title>Cial</title>
+
+  <style>
+    ::placeholder{font-weight: bold}
+    #para{font-weight: bold;}
+  </style>
+
+</head>
+
+<body>
+    <body class="page1" style="background-image: url({% static 'images/bg.jpg' %});background-attachment: fixed;background-size:cover">
+        <header>
+          <div class="container_12" style="background-image: url({% static 'images/logo.jpg' %});">
+            <div class="grid_12" >
+            <h1 style="color:white;text-align:center;font-size:40px;
+            padding:20px">Crop Fertilizer Prediction Using Machine Learning</h1>
+              <!--<h1><a href="#">Crop Fertilizer Prediction Using Machine Learning</a></h1>-->
+              <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="menu_block">
+            <div class="container_12">
+              <div class="grid_12">
+        <!--       <div class="socials"><a href="#"></a><a href="#"></a></div>
+                <div class="autor"> <a href="login">User Login</a>  </div>-->
+                <nav class="">
+                  <ul class="sxf-menu">
+                    <div class="autor"> <a href="/" style="color:white;font-size:18px;">Home</a>  </div>
+        {% if user.is_authenticated %}
+        <div class="autor"><a href="/" style="color:white;font-size:18px;">Welcome {{user.username}}</a></div>
+        <div class="autor"><a href="fertilizer" style="color:white;font-size:18px;">Fertilizer Prediction</a></div>
+        <div class="autor"><a href="crop" style="font-size: 18px;color:white">Crop Prediction</a></div>
+        <div class="autor"><a href="logout" style="color:white;font-size:18px;">Logout</a></div>
+        {% else %}
+        <div class="autor"> <a href="login" style="color:white;font-size:18px;">User Login</a>  </div>
+        <div class="autor"> <a href="register" style="color:white;font-size:18px;">Register</a>  </div>
+        {% endif %}
+                  </ul>
+                  </nav>
+                <div class="clear"></div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </header>
+  <div class="content">
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+
+          <div class="row align-items-center" style="background-color: beige;height:600px;
+          padding-left:100px;">
+            <div class="col-lg-8 mb-3 mb-lg-0">
+
+              <h2 style="color: black;">Crop Prediction Data</h2>
+              <form id="loanform" name="contactForm" method="post" onsubmit="openModal()">
+                {% csrf_token %}
+                <form id="form" name="sendreq"  method='post'>
+                    {% csrf_token %}
+                    <div class="login-form">
+                        <div class="sign-in-htm">
+                            <div class="group">
+                                <label for="user" class="label" style="margin-left:10px;margin-top:10px">Nitrogen</label>
+                                <input id="user" type="text" class="input" name='nitro' placeholder="{{nitro}}" readonly
+                                style="margin-left:93px;margin-top:10px">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label"  style="margin-left:10px;margin-top:10px">Phosphorous</label>
+                                <input id="pass" type="text" class="input" name='phos' placeholder="{{phos}}" readonly
+                                style="margin-left:64px;margin-top:10px">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label"  style="margin-left:10px;margin-top:10px">Pottasium</label>
+                                <input id="pass" type="text" class="input" name='pottas' placeholder="{{pottas}}" readonly
+                                style="margin-left:87px;margin-top:10px">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label"  style="margin-left:10px;margin-top:10px">Temperature</label>
+                                <input id="pass" type="text" class="input" name='temp' placeholder="{{temp}}" readonly
+                                style="margin-left:68px;margin-top:10px">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label"  style="margin-left:10px;margin-top:10px">Humidity</label>
+                                <input id="pass" type="text" class="input" name='humid' placeholder="{{humid}}" readonly
+                                style="margin-left:93px;margin-top:10px">
+                            </div>
+                             <div class="group">
+                                <label for="pass" class="label"  style="margin-left:10px;margin-top:10px">PH Value</label>
+                                <input id="pass" type="text" class="input" name='ph'  placeholder="{{ph}}" readonly
+                                style="margin-left:95px;margin-top:10px">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label"  style="margin-left:10px;margin-top:10px">Rain Fall</label>
+                                <input id="pass" type="text" class="input" name='rain' placeholder="{{rain}}" readonly
+                                style="margin-left:99px;margin-top:10px">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label"  style="margin-left:10px;margin-top:10px">Prediction Crop</label>
+                                <input id="pass" type="text" class="input" name='rain' placeholder="{{pred}}" readonly
+                                style="margin-left:99px;margin-top:10px">
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Predict"  style="margin:10px">
+                                
+                            </div>
+                            <div class="hr"  style='margin-top:-1%;'></div>
+                            
+                        </div>
+                        </div></form>
+                        </div></div>
+
+  <script src="{% static 'inputform/js/popper.min.js' %}"></script>
+  <script src="{% static 'inputform/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'inputform/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'inputform/js/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'inputform/js/main.js' %}"></script>
+</body>
+
+</html>

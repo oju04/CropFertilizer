@@ -1,0 +1,184 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}">
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-1.1.1.js' %}"></script>
+  <script src="{% static 'js/superfish.js' %}"></script>
+  <script src="{% static 'js/sForm.js' %}"></script>
+  <script src="{% static 'js/jquery.equalheights.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/tms-0.4.1.js' %}"></script>
+  <script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js' %}"></script>
+  <script	src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
+  <script>
+  $(window).load(function () {
+      $('.slider')._TMS({
+          show: 0,
+          pauseOnHover: false,
+          prevBu: '.prev',
+          nextBu: '.next',
+          playBu: false,
+          duration: 800,
+          preset: 'fade',
+          pagination: false, //'.pagination',true,'<ul></ul>'
+          pagNums: false,
+          slideshow: 8000,
+          numStatus: false,
+          banners: true,
+          waitBannerAnimation: false,
+          progressBar: false
+      })
+  });
+  $(window).load(
+      function () {
+          $('.carousel1').carouFredSel({
+              auto: false,
+              prev: '.prev1',
+              next: '.next1',
+              width: 1030,
+              items: {
+                  visible: {
+                      min: 1,
+                      max: 4
+                  },
+                  height: 'auto',
+                  width: 157,
+              },
+              responsive: true,
+              scroll: 1,
+              mousewheel: false,
+              swipe: {
+                  onMouse: true,
+                  onTouch: true
+              }
+          });
+      });
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'inputform/fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'inputform/css/owl.carousel.min.css' %}">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'inputform/css/bootstrap.min.css' %}">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="{% static 'inputform/css/style.css' %}">
+
+  <title>Cial</title>
+
+  <style>
+    ::placeholder{font-weight: bold}
+    #para{font-weight: bold;}
+  </style>
+
+</head>
+
+<body>
+    <body class="page1" style="background-image: url({% static 'images/bg.jpg' %});background-attachment: fixed;background-size:cover">
+        <header>
+          <div class="container_12" style="background-image: url({% static 'images/logo.jpg' %});">
+            <div class="grid_12" >
+              <div class="h_phone">Crop Fertilizer Prediction Using Machine Learning</div>
+              <!--<h1><a href="#">Crop Fertilizer Prediction Using Machine Learning</a></h1>-->
+              <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="menu_block">
+            <div class="container_12">
+              <div class="grid_12">
+        <!--       <div class="socials"><a href="#"></a><a href="#"></a></div>
+                <div class="autor"> <a href="login">User Login</a>  </div>-->
+                <nav class="">
+                  <ul class="sxf-menu">
+                    <div class="autor"> <a href="/">Home</a>  </div>
+        {% if user.is_authenticated %}
+        <div class="autor"><a href="/">Welcome {{user.username}}</a></div>
+        <div class="autor"><a href="fertilizer">Fertilizer Prediction</a></div>
+        <div class="autor"><a href="logout">Logout</a></div>
+        {% else %}
+        <div class="autor"> <a href="login">User Login</a>  </div>
+        <div class="autor"> <a href="register">Register</a>  </div>
+        {% endif %}
+                  </ul>
+                  </nav>
+                <div class="clear"></div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </header>
+  <div class="content">
+
+    <div class="login-wrap" style="height:500px;">
+        <div class="login-html">
+            <h2>Welcome to Prediction Page</h2>
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Ask Me!</label>
+            <!-- <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label> -->
+            <form id="form" name="sendreq"  method='post'>
+            {% csrf_token %}
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Temperature <span style="font-size: 12px;">(District)</span></label>
+                        <input id="user" type="text" class="input" placeholder='{{Temparature}}' readonly>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Humidity</label>
+                        <input id="pass" type="text" class="input" placeholder='{{Humidity}}' readonly>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Moisture</label>
+                        <input id="pass" type="text" class="input" placeholder='{{Moisture}}' readonly>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Soil Type</label>
+                        <input id="pass" type="text" class="input" placeholder='{{soil}}' readonly>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Crop Type</label>
+                        <input id="pass" type="text" class="input" placeholder='{{crop}}' readonly>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Nitrogen</label>
+                        <input id="pass" type="text" class="input" placeholder='{{Nitrogen}}' readonly>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Potassium</label>
+                        <input id="pass" type="text" class="input" placeholder='{{Potassium}}' readonly>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Phosphorous</label>
+                        <input id="pass" type="text" class="input" placeholder='{{Phosphorous}}' readonly>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Predicted Fertilizers</label>
+                        <input id="pass" type="text" class="input" placeholder='{{prediction}}' readonly>
+                    </div>
+                    <div class="hr"  style='margin-top:-1%;'></div>
+                    
+                </div>
+                </div></form>
+                </div></div>
+    
+
+  <script src="{% static 'inputform/js/popper.min.js' %}"></script>
+  <script src="{% static 'inputform/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'inputform/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'inputform/js/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'inputform/js/main.js' %}"></script>
+</body>
+
+</html>

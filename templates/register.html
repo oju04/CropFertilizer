@@ -1,0 +1,138 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Cial Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'form/css/bootstrap.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'form/css/style.css' %}">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+
+</head>
+
+<body class="img js-fullheight">
+
+	<div class="header_section">
+		<div class="header_left">
+			<nav class="navbar navbar-expand-lg navbar-light ">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="login">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="register">Register</a>
+						</li>
+						<!--<li class="nav-item">
+							<a class="nav-link" href="about">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact">Contact</a>
+						</li>-->
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-3">
+					<h2 class="heading-section">Register</h2>
+				</div>
+			</div>
+
+			<div class="login-wrap p-0 ">
+				<h3 class="mb-2 text-center">Create an account</h3>
+				<form method="post" action="#" class="signup-form text-center">
+					{% csrf_token %}
+					<div class="form-row row justify-content-center">
+						<div class="form-group col-md-6 col-lg-4">
+							<input type="text" class="form-control" name="user" placeholder="Username" required>
+						</div>
+						<div class="form-group col-md-6 col-lg-4">
+							<input type="email" class="form-control" name="email" placeholder="Email" required>
+						</div>
+					</div>
+					<div class="form-row row justify-content-center">
+						<div class="form-group col-md-6 col-lg-4">
+							<input type="text" class="form-control" name="fname" placeholder="First Name" required>
+						</div>
+						<div class="form-group col-md-6 col-lg-4">
+							<input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+						</div>
+					</div>
+					<div class="form-row row justify-content-center">
+						<div class="form-group col-md-6 col-lg-4">
+							<input id="password-field" type="password" name="pass" class="form-control" minlength="4"
+								maxlength="8" placeholder="Password" required>
+							<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+						</div>
+						<div class="form-group col-md-6 col-lg-4">
+							<input id="confirm-password-field" type="password" name="confirm_pass" class="form-control"
+								minlength="4" maxlength="8" placeholder="Confirm Password" required>
+							<span toggle="#confirm-password-field"
+								class="fa fa-fw fa-eye field-icon toggle-password"></span>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="form-row col-md-6 col-lg-4">
+							<button type="submit" name="submit" class="form-control btn btn-primary submit px-3 ">Sign
+								Up</button>
+						</div>
+					</div>
+				</form><br>
+
+				{% for i in messages %}
+				<div class="row justify-content-center">
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						{{i}}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+				{% endfor %}
+
+				<div class="form-row row justify-content-center">
+					<div class="form-group col-md-6 col-lg-4">
+						<p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+						<div class="social d-flex text-center">
+							<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>
+								Facebook</a>
+							<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span>
+								Twitter</a>
+						</div>
+					</div>
+				</div><br>
+				<div class="w-100 text-center">
+					<a href="login" style="color: #fff">Already have an account? Sign In Now!</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'login/js/jquery.min.js' %}"></script>
+	<script src="{% static 'login/js/popper.js' %}"></script>
+	<script src="{% static 'login/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'login/js/main.js' %}"></script>
+
+</body>
+
+</html>

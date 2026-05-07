@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Crop Fertilizer</title>
+<meta charset="utf-8">
+<link rel="icon" href="{% static 'images/favicon.ico' %}">
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/slider.css' %}">
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-1.1.1.js' %}"></script>
+<script src="{% static 'js/superfish.js' %}"></script>
+<script src="{% static 'js/sForm.js' %}"></script>
+<script src="{% static 'js/jquery.equalheights.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/tms-0.4.1.js' %}"></script>
+<script src="{% static 'js/jquery.carouFredSel-6.1.0-packed.js' %}"></script>
+<script	src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
+<script>
+$(window).load(function () {
+    $('.slider')._TMS({
+        show: 0,
+        pauseOnHover: false,
+        prevBu: '.prev',
+        nextBu: '.next',
+        playBu: false,
+        duration: 800,
+        preset: 'fade',
+        pagination: false, //'.pagination',true,'<ul></ul>'
+        pagNums: false,
+        slideshow: 8000,
+        numStatus: false,
+        banners: true,
+        waitBannerAnimation: false,
+        progressBar: false
+    })
+});
+$(window).load(
+    function () {
+        $('.carousel1').carouFredSel({
+            auto: false,
+            prev: '.prev1',
+            next: '.next1',
+            width: 1030,
+            items: {
+                visible: {
+                    min: 1,
+                    max: 4
+                },
+                height: 'auto',
+                width: 157,
+            },
+            responsive: true,
+            scroll: 1,
+            mousewheel: false,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            }
+        });
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body class="page1">
+<header>
+  <div class="container_12" style="background-image: url({% static 'images/logo.jpg' %});">
+    <div class="grid_12" >
+    <h1 style="color:white;text-align:center;font-size:40px;
+    padding:20px">Crop Fertilizer Prediction Using Machine Learning</h1>
+      <!--<h1><a href="#">Crop Fertilizer Prediction Using Machine Learning</a></h1>-->
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="menu_block" >
+    <div class="container_12">
+      <div class="grid_12">
+<!--       <div class="socials"><a href="#"></a><a href="#"></a></div>
+        <div class="autor"> <a href="login">User Login</a>  </div>-->
+        <nav class="">
+          <ul class="sxf-menu">
+            <div class="autor"> <a href="/" style="font-size: 18px;">Home</a>  </div>
+{% if user.is_authenticated %}
+<div class="autor"><a href="/" style="font-size: 18px;">Welcome {{user.username}}</a></div>
+<div class="autor"><a href="fertilizer" style="font-size: 18px;">Fertilizer Prediction</a></div>
+<div class="autor"><a href="crop" style="font-size: 18px;">Crop Prediction</a></div>
+<div class="autor"><a href="logout" style="font-size: 18px;">Logout</a></div>
+{% else %}
+<div class="autor"> <a href="login" style="font-size: 18px;">User Login</a>  </div>
+<div class="autor"> <a href="register" style="font-size: 18px;">Register</a>  </div>
+{% endif %}
+          </ul>
+          </nav>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</header>
+<div class="slider-relative">
+  <div class="slider-block">
+    <div class="slider"> <a href="#" class="prev"></a> <a href="#" class="next"></a>
+      <ul class="items">
+        <li> <img src="{% static 'images/slide.jpg' %}" alt="">
+          <div class="banner">Crop Fertilizer <br>
+            <br>
+            Prediction using Machine Learning</div>
+        </li>
+        <li> <img src="{% static 'images/slide1.jpg' %}" alt="">
+          <div class="banner">Random Forest <br>
+            <br>
+            Classifier</div>
+        </li>
+        <li> <img src="{% static 'images/slide2.jpg' %}" alt="">
+          <div class="banner">Best food is<br>
+            <br>
+            natural food</div>
+        </li>
+        <li> <img src="{% static 'images/slide3.jpg' %}" alt="">
+          <div class="banner">New agricultural <br>
+            <br>
+            technologies only</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="black">
+    <div class="page1_block">
+      <div class="container_12">
+        <div class="grid_12">
+          <h2>Crop Fertilizer Prediction<br>
+            <br>
+            <br>
+            Using Machine Learning</h2>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="container_12">
+      <div class="grid_3">
+        <h3>Crop Prediction</h3>
+        <div class="col1">Agriculture plays a critical role to Indian global economy and contributes a major part to GDP. With the expansion of the human population, it is necessary to maintain food security, it is achieved and controlled by the agricultural yield produced by the nation. The yield of a crop is mainly determined by the climatic conditions like temperature, rainfall, soil conditions, and fertilizers. Due to these variable factors, the production gets affected and remains a huge problem for the agricultural sector to strengthen the need for exactness for proper analyzing the crop production in variable climatic conditions. </div>
+        <a href="#" class="btn">More</a> </div>
+      <div class="grid_3">
+        <h3>Fertilizer</h3>
+        <div class="col1">Recently, the machine learning algorithms are used by the researchers to predict the yield of a crop before its actual cultivation. This research study has proposed a machine learning algorithm: AdaBoost to predict the yield of crops based on the parameters like state, district, area, seasons, rainfall, temperature, and area. To enhance the yield, this research study also suggests a fertilizer based on the soil conditions like NPK values, soil type, soil PH, humidity, and moisture. Fertilizer recommendation is primarily done by using the Random Forest [RF] algorithm.</div>
+        <a href="#" class="btn">More</a> </div>
+      <div class="grid_3">
+        <h3>Crop</h3>
+        <div class="col1">India's economy is heavily dependent on rising agricultural yields and agro-industry goods. In this paper, we explore various machine learning techniques utilized in crop yield estimation and provide the detailed analysis of accuracy of the techniques. Machine learning techniques learn from data set related to the environment on which the estimations and estimation are to be made. The outcome of the learning process is used by farmers for corrective measures for yield optimization.</div>
+        <a href="#" class="btn">More</a> </div>
+      <div class="grid_3">
+        <h3>Prediction</h3>
+        <div class="col1">To anticipate the crop and to suggest fertilizer, also to detect plant disease, sophisticated models were devised and constructed for this proposed system. From a photograph of a leaf, an algorithm determines whether the plant is diseased or not. The Random Forest [RF] model provide suggestions for enhancing soil fertility and to recommend fertilizer depending on the soil's nutrient composition.</div>
+        <a href="#" class="btn">More</a> </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <!--<div class="white">
+    <div class="container_12">
+      <div class="grid_7">
+        <h3>Company Products</h3>
+        <img src="{% static 'images/page1_img1.jpg' %}" alt="" class="img_inner fleft">
+        <div class="extra_wrapper">
+          <div class="text1"> Aliquam placerat ligula eu sem facilj is semper porta sem pellentesque. </div>
+          <p class="col1"><a class="col2" href="#">Click here</a> for more info about this free website template created by TemplateMonster.com </p>
+          Lkhasellus id adipiscing nunc. Donecvelqq wr augue et nulla vehicula pretium. Donew ctryi weconsequat accumsan erat ac vu jo lputate. Kt consectetur commodo mollis. Ut necrci we tellus interdum aliquet. Johaseko kolo	lus id adipiscing nunc. Donec veldsak augue et nulr jver ehicula pretium. <br>
+          <a href="#" class="btn">More</a> </div>
+      </div>
+      <div class="grid_4 prefix_1">
+        <h3>Technologies</h3>
+        <img src="{% static 'images/page1_img2.jpg' %}" alt="" class="img_inner fleft i1">
+        <div class="extra_wrapper">
+          <div class="col1"> <a href="#">Mklhasellus aed hadipiscin nury.</a> </div>
+          Konecvel whjugute etew nulla vehiculuote. pretium. Donew ctryi weconsequat accure msan erat ac vu jo lputatesectetur. </div>
+        <div class="clear cl1"></div>
+        <img src="{% static 'images/page1_img3.jpg' %}" alt="" class="img_inner fleft i1">
+        <div class="extra_wrapper">
+          <div class="col1"> <a href="#">Uokhasellus id adipiscing nu.</a> </div>
+          Honecvelqq whjugue et nulla vehiculuowe. Kjonecvelqq jugue et nulla vehiculoretium. Donew ctryi weconsequat accumsan. </div>
+        <div class="clear cl2"></div>
+        <img src="{% static 'images/page1_img4.jpg' %}" alt="" class="img_inner fleft i1">
+        <div class="extra_wrapper">
+          <div class="col1 "> <a href="#">Lkokhasellusuop adipiscing nuretilo kolitri.</a> </div>
+          Kjonecvelqq jugue et nulla vehiculoretium. Donew ctryi weconsequat accumsan erat ac vu jo lputateconsectetur commodo. </div>
+        <div class="clear"></div>
+        <a href="#" class="btn">More</a> </div>
+      <div class="clear"></div>
+    </div>
+  </div>-->
+  <!--<div class="gray">
+    <div class="container_12">
+      <div class="grid_12">
+        --<div class="car"> <a href="#" class="prev1"></a> <a href="#" class="next1"></a>
+          <div class="car_div">
+            <ul class="carousel1">
+              <li><a href="#"><img src="{% static 'images/logo1.png' %}" alt=""></a></li>
+              <li><a href="#"><img src="{% static 'images/logo2.png' %}" alt=""></a></li>
+              <li><a href="#"><img src="{% static 'images/logo3.png' %}" alt=""></a></li>
+              <li><a href="#"><img src="{% static 'images/logo4.png' %}" alt=""></a></li>
+              <li><a href="#"><img src="{% static 'images/logo2.png' %}" alt=""></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>-->
+<footer>
+  <div class="container_12">
+    <div class="grid_2">
+      <div class="copy"> <a href="index.html" class="footer_logo"><img src="images/footer_logo.png"	alt=""></a> &copy; 2045 <a href="#">Privacy Policy</a> </div>
+    </div>
+    <div class="grid_2">
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Delivery</a></li>
+        <li><a href="#">Legal Notice</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </div>
+    <div class="grid_2">
+      <ul>
+        <li><a href="#">New Products</a></li>
+        <li><a href="#">Top Sellers</a></li>
+        <li><a href="#">Specials</a></li>
+        <li><a href="#">Manufacturers</a></li>
+        <li><a href="#">Suppliers</a></li>
+      </ul>
+    </div>
+    <div class="grid_2">
+      <ul>
+        <li><a href="#">Science &amp; Safety</a></li>
+        <li><a href="#">Product </a></li>
+        <li><a href="#">Our Brands</a></li>
+        <li><a href="#">Agricultural </a></li>
+        <li><a href="#">Traits &amp; Technologies</a></li>
+      </ul>
+    </div>
+    <div class="grid_3 prefix_1">
+      <h4>Newsletter</h4>
+      <form id="newsletter" action="#">
+        <div class="success">Your subscribe request has been sent!</div>
+        <label class="email"> <span>Enter e-mail address</span>
+          <input type="email" value="" >
+          <a href="#" class="btn" data-type="submit">Subscribe</a> <span class="error">*This is not a valid email address.</span> </label>
+      </form>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="f_bot">
+    <div class="container_12">
+      <div class="grid_12">Design by: <a href="#">Fertilizer.in</a></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
